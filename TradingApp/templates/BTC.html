@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block title %}Trading App{% endblock %} {% block content
+    %}
+    
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+            <div align="center">
+                <h1 style="float:left; padding-top: 100px;">₿ITCOIN</h1>
+                <img src="../static/images/bitcoin.png" alt="Bitcoin"  style="width:30%">
+                <h1 style="float:right; padding-top: 100px; padding-right: 70px;">₿ITCOIN</h1>
+            </div>
+            <div align="center"></div>
+            <div align="center" id="chart" style="border: solid rgb(60, 60, 0) 5px; padding: 15px; width: 1040px; margin-top: 20px;"></div>
+    
+</br>
+</br>
+        <div align="center" style="padding-bottom: 100px">
+            <div style="border: solid gray 1px; padding: 20px; width: 600px; margin-top: 20px;">
+                <h3>Balance: $ {{balance.balance}}</h3>
+            </br>
+                <form action="/buybtc" method="post" style="float:left">
+                    <button class="btn btn-success" type="submit" name="buybtc">Buy 1 BTC</button>
+                </form>
+                <form action="/sellbtc" method="post" style="float:right">
+                    <button class="btn btn-danger" type="submit" name="sellbtc">Sell 1 BTC</button>
+                </form>
+                <h3>You have {{asset.btc_balance}} BTC</h3>
+            </div>
+        </div>
+    
+
+    
+    
+            <script>
+            /*var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1m");
+    
+            var price;
+            binanceSocket.onmessage = function (event) {
+                var message = JSON.parse(event.data);
+                var candlestick = message.k;
+                price = candlestick.c;
+                // console.log(price);
+            }
+            console.log(price)
+            function sendPrice() {
+                let getPrice = {
+                    'price': price
+                }
+
+            }*/
+            
+            </script>
+            <script src="{{ url_for('static', filename='chart.js') }}"></script>
+    {% endblock %}

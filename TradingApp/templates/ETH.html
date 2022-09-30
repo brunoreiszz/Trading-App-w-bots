@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block title %}Trading App{% endblock %} {% block content
+    %}
+    
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+            <div align="center">
+                <h1 style="float:left; padding-top: 100px;">ΞTHEREUM</h1>
+                <img src="../static/images/ethereum.png" alt="Ethereum"  style="width:30%; padding: 25px;">
+                <h1 style="float:right; padding-top: 100px; padding-right: 70px;">ΞTHEREUM</h1>
+            </div>
+
+            <div id="chart" style="border: solid rgb(60, 60, 0) 5px; padding: 15px; width: 1040px; margin-top: 20px;"></div>
+        </br>
+        </br>
+            <div align="center" style="padding-bottom: 100px">
+                <div style="border: solid gray 1px; padding: 20px; width: 600px; margin-top: 20px;">
+                    <h3>Balance: $ {{balance.balance}}</h3>
+                </br>
+                    <form action="/buyeth" method="post" style="float:left">
+                        <button class="btn btn-success" type="submit" name="buyeth">Buy 1 ETH</button>
+                    </form>
+                    <form action="/selleth" method="post" style="float:right">
+                        <button class="btn btn-danger" type="submit" name="selleth">Sell 1 ETH</button>
+                    </form>
+                    <h3>You have {{asset.eth_balance}} ETH</h3>
+                </div>
+            </div>
+            <div>
+                <form action="/run_rsi_bot_eth" method="post">
+                    <button class="btn btn-danger" type="submit" name="run_rsi_bot">Run Bot</button>
+                </form>
+            </div>
+
+    
+    
+            <script>
+            //var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade");
+    
+            var tradeDiv = document.getElementById('trades')
+    
+            // binanceSocket.onmessage = function (event) {
+            //     console.log(event.data);
+    
+            //     var messageObject = JSON.parse(event.data)   
+    
+            //     tradeDiv.append(messageObject.p)
+                     
+            // }
+            </script>
+            <script src="{{ url_for('static', filename='chart2.js') }}"></script>
+    {% endblock %}

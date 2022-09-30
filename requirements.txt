@@ -1,0 +1,7 @@
+flask
+Flask-SQLAlchemy
+flask-login
+python-binance
+numpy
+newtulipy
+websocket-client

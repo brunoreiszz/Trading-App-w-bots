@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block title %}Trading App{% endblock %} {% block content
+%}
+<h1 style="padding: 55px;" align="center">Welcome {{user.first_name}}!</h1>
+<div align="center">
+  <p >This is a trading app that allows you to start with a ficticious balance of $50,000.</p>
+  <p>With that limited balance you can buy and sell <a href="/tradebtc">Bitcoin</a> or <a href="/tradeeth">Ethereum</a>, at current market price.</p>
+  <p>You are only allowed to: Trade on the 1 minute chart; Buy or sell 1 coin at a time.</p>
+</br>
+  <p style="font-weight: bold;">The Special Feature of this app:</p>
+  <p>You can automate your trades using one of 2 BOTS <span>🤖</span> available!</p>
+  <p>Please check the <a href="/indicators">BOT Information</a> tab for more information on how to use them and what they do.</p>
+</br>
+</br>
+<div align="center">
+  <h3><span>💲 </span>Current balance and assets:<span> 💲</span></h3>
+  <p style="font-size:20px; font-weight:500;"> ₿ <u>{{asset.btc_balance}} </u></p>
+  <p style="font-size:20px; font-weight:500;"> Ξ <u>{{asset.eth_balance}} </u></p>
+  <p style="font-size:20px; font-weight:500;"> $ <u>{{balance.balance}}</u></p>
+</div>
+ <!--<p style="font-weight:600; font-size:30px;">Ready to trade?</p>-->
+</div>
+<div class="row">
+  <div style="float: left; width: 50%;">
+    <a href="/tradebtc"><img src="../static/images/bitcoin.png" alt="Bitcoin" style="width:100%"></a>
+  </div>
+  <div style="float:left; width: 50%;">
+    <a href="/tradeeth"><img src="../static/images/ethereum.png" alt="Ethereum" style="width:78%; padding-top: 75px;"></a>
+  </div>
+</div>
+<div align="center" style="padding-bottom: 100px;">
+  <h3><u>Choose your poison!</u></h3>
+  <h1>BITCOIN or ETHEREUM</h1>
+</div>
+{% endblock %}
